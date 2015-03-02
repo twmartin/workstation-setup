@@ -1,5 +1,5 @@
 sudo: false
 language: bash
 script:
-  - bash -n init.sh
+  - bash -n setup.sh
 

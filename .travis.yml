@@ -1,0 +1,5 @@
+sudo: false
+language: bash
+script:
+  - bash -n init.sh
+

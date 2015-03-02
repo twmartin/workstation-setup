@@ -1,0 +1,5 @@
+gem: --no-document
+sources:
+  - http://rubygems.org
+update_sources: true
+disable_default_gem_server: true

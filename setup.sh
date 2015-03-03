@@ -43,7 +43,7 @@ deactivate
 # Install HomeBrew Cask and casks
 echo 'Installing HomeBrew Cask and casks...'
 brew install caskroom/cask/brew-cask
-casks=( firefox google-chrome iterm2 textwrangler sublime-text vagrant virtualbox )
+casks=( firefox google-chrome iterm2 textwrangler sublime-text vagrant virtualbox intellij-idea )
 for cask in ${casks[*]}; do
   echo "Installing $cask..."
   brew cask install $cask --appdir=/Applications

@@ -18,7 +18,7 @@ done
 # Install HomeBrew and packages
 echo 'Installing HomeBrew and its packages...'
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-brews=( vim git wget ack openssl tree )
+brews=( vim git wget ack openssl tree nmap )
 for brew in ${brews[*]}; do
   echo "Installing $brew..."
   brew install $brew
@@ -72,3 +72,4 @@ done
 cp .vimrc $HOME/.vimrc
 
 cp .profile $HOME/.profile
+cp .rvmrc $HOME/.rvmrc

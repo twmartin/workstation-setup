@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 # Install RVM, rubies, and global gems
 echo 'Installing RVM, rubies, and gems...'
 \curl -sSL https://get.rvm.io | bash
@@ -15,6 +16,7 @@ for gem in ${default_gems[*]}; do
   gem install $gem
 done
 
+
 # Install HomeBrew and packages
 echo 'Installing HomeBrew and its packages...'
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -24,6 +26,7 @@ for brew in ${brews[*]}; do
   brew install $brew
 done
 
+
 # Configure/install python/virturalenv and packages
 echo 'Installing and configuring python/virtualenv...'
 brew install python
@@ -31,7 +34,7 @@ pip install --upgrade pip
 pip freeze | sudo xargs pip uninstall -y
 pip install virtualenvwrapper
 cp .bash_profile $HOME/.bash_profile
-# source $HOME/.bash_profile
+source $HOME/.bash_profile
 mkvirtualenv default
 python_packages=( awscli nose requests )
 for pkg in ${python_packages[*]}; do
@@ -39,6 +42,7 @@ for pkg in ${python_packages[*]}; do
   pip install $pkg
 done
 deactivate
+
 
 # Install HomeBrew Cask and casks
 echo 'Installing HomeBrew Cask and casks...'
@@ -49,9 +53,12 @@ for cask in ${casks[*]}; do
   brew cask install $cask --appdir=/Applications
 done
 
+
 # Configure .vim
 echo 'Configuring vim...'
-mkdir -p $HOME/.vim/bundle
+mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
+curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
 vim_bundles=(
   kien/rainbow_parentheses.vim
   vim-scripts/paredit.vim

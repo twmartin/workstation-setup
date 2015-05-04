@@ -1,6 +1,13 @@
 #!/bin/bash
 
 
+# Git config
+git config --global user.name 'twmartin'
+echo 'Enter your email for git config: '
+read GIT_EMAIL
+git config --global user.email "$GIT_EMAIL"
+
+
 # Install RVM, rubies, and global gems
 echo 'Installing RVM, rubies, and gems...'
 \curl -sSL https://get.rvm.io | bash

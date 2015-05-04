@@ -13,7 +13,7 @@ echo 'Installing RVM, rubies, and gems...'
 \curl -sSL https://get.rvm.io | bash
 rvm install 2.1.5
 rvm --default use 2.1.5
-cp ./.gemrc $HOME/.gemrc
+cp ./.gemrc-template $HOME/.gemrc
 echo "Installing bundler as a global gem..."
 rvm @global do gem install bundler
 rvm gemset use default
@@ -39,14 +39,16 @@ echo 'Installing and configuring python/virtualenv...'
 brew install python
 pip install --upgrade pip
 pip freeze | sudo xargs pip uninstall -y
-pip install virtualenvwrapper
-cp .bash_profile $HOME/.bash_profile
+pip install --upgrade virtualenvwrapper==4.5.0
+# Bug with 4.5.1
+# https://bitbucket.org/dhellmann/virtualenvwrapper/issue/265/lsvirtualenv-command-outputs-error-in
+cp .bash_profile-template $HOME/.bash_profile
 source $HOME/.bash_profile
 mkvirtualenv default
 python_packages=( awscli nose requests )
 for pkg in ${python_packages[*]}; do
   echo "Installing $pkg..."
-  pip install $pkg
+  pip install --upgrade $pkg
 done
 deactivate
 
@@ -65,7 +67,6 @@ done
 echo 'Configuring vim...'
 mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
 curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
 vim_bundles=(
   kien/rainbow_parentheses.vim
   vim-scripts/paredit.vim
@@ -83,7 +84,8 @@ for repo in ${vim_bundles[*]}; do
   fi
   cd -
 done
-cp .vimrc $HOME/.vimrc
+cp .vimrc-template $HOME/.vimrc
 
-cp .profile $HOME/.profile
-cp .rvmrc $HOME/.rvmrc
+cp .profile-template $HOME/.profile
+cp .rvmrc-template $HOME/.rvmrc
+

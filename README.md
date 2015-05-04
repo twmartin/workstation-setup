@@ -8,5 +8,5 @@
 
 ## Usage
 ```bash
-$ bash setup.sh
+$ bash --login setup.sh
 ```

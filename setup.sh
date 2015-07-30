@@ -26,7 +26,8 @@ done
 
 # Install HomeBrew and packages
 echo 'Installing HomeBrew and its packages...'
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+$hombrew_url='https://raw.githubusercontent.com/Homebrew/install/master/install'
+ruby -e "$(curl -fsSL $hombrew_url)"
 brews=( vim git wget ack openssl tree nmap )
 for brew in ${brews[*]}; do
   echo "Installing $brew..."
@@ -39,16 +40,14 @@ echo 'Installing and configuring python/virtualenv...'
 brew install python
 pip install --upgrade pip
 pip freeze | sudo xargs pip uninstall -y
-pip install --upgrade virtualenvwrapper==4.5.0
-# Bug with 4.5.1
-# https://bitbucket.org/dhellmann/virtualenvwrapper/issue/265/lsvirtualenv-command-outputs-error-in
+pip install --upgrade virtualenvwrapper
 cp .bash_profile-template $HOME/.bash_profile
 source $HOME/.bash_profile
 mkvirtualenv default
 python_packages=( awscli nose requests )
-for pkg in ${python_packages[*]}; do
-  echo "Installing $pkg..."
-  pip install --upgrade $pkg
+for py_pkg in ${python_packages[*]}; do
+  echo "Installing $py_pkg..."
+  pip install --upgrade $py_pkg
 done
 deactivate
 
@@ -56,12 +55,29 @@ deactivate
 # Install HomeBrew Cask and casks
 echo 'Installing HomeBrew Cask and casks...'
 brew install caskroom/cask/brew-cask
-casks=( firefox google-chrome iterm2 textwrangler sublime-text vagrant virtualbox intellij-idea )
+casks=(
+  atom
+  firefox
+  google-chrome
+  intellij-idea
+  iterm2
+  sublime-text
+  textwrangler
+  vagrant
+  virtualbox
+)
 for cask in ${casks[*]}; do
   echo "Installing $cask..."
   brew cask install $cask --appdir=/Applications
 done
 
+# Install atom packages
+echo 'Installing atom packages...'
+atom_pkgs=( Sublime-Style-Column-Selection language-groovy )
+for atom_pkg in ${atom_pkgs[*]}; do
+  echo "Installing $atom_pkg..."
+  apm install $atom_pkg
+done
 
 # Configure .vim
 echo 'Configuring vim...'
@@ -88,4 +104,3 @@ cp .vimrc-template $HOME/.vimrc
 
 cp .profile-template $HOME/.profile
 cp .rvmrc-template $HOME/.rvmrc
-

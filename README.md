@@ -3,6 +3,7 @@
 - Installs [HomeBrew](https://github.com/Homebrew/homebrew) and some packages
 - Configures Python/virtualenv/packages
 - Installs [HomeBrew-Cask](https://github.com/caskroom/homebrew-cask) and some applications
+- Installs [Atom](https://github.com/atom/atom) and some packages
 - Configures vim
 - Overwrites default `.bash_profile`, `.profile`, `.gemrc`, and `.vimrc` files
 

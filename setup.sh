@@ -73,7 +73,13 @@ done
 
 # Install atom packages
 echo 'Installing atom packages...'
-atom_pkgs=( Sublime-Style-Column-Selection language-groovy )
+atom_pkgs=(
+  highlight-selected
+  language-groovy
+  minimap
+  minimap-highlight-selected
+  Sublime-Style-Column-Selection
+)
 for atom_pkg in ${atom_pkgs[*]}; do
   echo "Installing $atom_pkg..."
   apm install $atom_pkg

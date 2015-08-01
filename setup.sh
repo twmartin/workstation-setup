@@ -74,6 +74,7 @@ done
 # Install atom packages
 echo 'Installing atom packages...'
 atom_pkgs=(
+  file-icons
   highlight-selected
   language-groovy
   minimap

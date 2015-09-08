@@ -76,7 +76,10 @@ echo 'Installing atom packages...'
 atom_pkgs=(
   file-icons
   highlight-selected
+  indent-guide-improved
   language-groovy
+  linter
+  linter-jsonlint
   minimap
   minimap-highlight-selected
   Sublime-Style-Column-Selection

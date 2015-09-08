@@ -26,7 +26,7 @@ done
 
 # Install HomeBrew and packages
 echo 'Installing HomeBrew and its packages...'
-$hombrew_url='https://raw.githubusercontent.com/Homebrew/install/master/install'
+hombrew_url='https://raw.githubusercontent.com/Homebrew/install/master/install'
 ruby -e "$(curl -fsSL $hombrew_url)"
 brews=( vim git wget ack openssl tree nmap )
 for brew in ${brews[*]}; do
@@ -79,7 +79,12 @@ atom_pkgs=(
   indent-guide-improved
   language-groovy
   linter
+  linter-coffeelint
+  linter-js-yaml
   linter-jsonlint
+  linter-pylint
+  linter-shellcheck
+  linter-rubocop
   minimap
   minimap-highlight-selected
   Sublime-Style-Column-Selection

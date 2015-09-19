@@ -59,10 +59,7 @@ casks=(
   atom
   firefox
   google-chrome
-  intellij-idea
   iterm2
-  sublime-text
-  textwrangler
   vagrant
   virtualbox
 )

@@ -72,6 +72,7 @@ done
 # Install atom packages
 echo 'Installing atom packages...'
 atom_pkgs=(
+  Sublime-Style-Column-Selection
   file-icons
   highlight-selected
   indent-guide-improved
@@ -85,7 +86,8 @@ atom_pkgs=(
   linter-rubocop
   minimap
   minimap-highlight-selected
-  Sublime-Style-Column-Selection
+  minimap-linter
+  minimap-selection
 )
 for atom_pkg in ${atom_pkgs[*]}; do
   echo "Installing $atom_pkg..."

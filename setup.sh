@@ -29,7 +29,7 @@ done
 echo 'Installing HomeBrew and its packages...'
 hombrew_url='https://raw.githubusercontent.com/Homebrew/install/master/install'
 ruby -e "$(curl -fsSL $hombrew_url)"
-brews=( vim git wget ack openssl tree nmap )
+brews=( vim git wget ack openssl tree nmap docker docker-machine )
 for brew in ${brews[*]}; do
   echo "Installing $brew..."
   brew install $brew

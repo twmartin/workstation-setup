@@ -9,6 +9,6 @@ addons:
       - shellcheck
 
 script:
-  - shellcheck -x setup.sh
+  - shellcheck setup.sh
   - bash -n setup.sh
 

@@ -1,5 +1,11 @@
 sudo: false
 language: bash
+
+before_install:
+  - sudo apt-get -qq update
+  - sudo apt-get install -y shellcheck
+
 script:
+  - shellcheck setup.sh
   - bash -n setup.sh
 

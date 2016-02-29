@@ -43,7 +43,7 @@ pip install --upgrade pip
 pip freeze | sudo xargs pip uninstall -y
 pip install --upgrade virtualenvwrapper
 cp .bash_profile-template "$HOME/.bash_profile"
-# shellcheck source=.bash_profile-template
+# shellcheck disable=SC1090
 source ~/.bash_profile
 mkvirtualenv default
 python_packages=( awscli nose requests )

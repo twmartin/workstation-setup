@@ -3,8 +3,10 @@ language: bash
 
 addons:
   apt:
+    sources:
+      - debian-sid
     packages:
-    - shellcheck
+      - shellcheck
 
 script:
   - shellcheck setup.sh

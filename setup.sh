@@ -4,16 +4,16 @@
 # Git config
 git config --global user.name 'twmartin'
 echo 'Enter your email for git config: '
-read GIT_EMAIL
+read -r GIT_EMAIL
 git config --global user.email "$GIT_EMAIL"
 
 
 # Install RVM, rubies, and global gems
 echo 'Installing RVM, rubies, and gems...'
-\curl -sSL https://get.rvm.io | bash
+curl -sSL https://get.rvm.io | bash
 rvm install 2.1.5
 rvm --default use 2.1.5
-cp ./.gemrc-template $HOME/.gemrc
+cp ./.gemrc-template "$HOME/.gemrc"
 echo "Installing bundler as a global gem..."
 # shellcheck disable=SC1010
 rvm @global do gem install bundler
@@ -21,7 +21,7 @@ rvm gemset use default
 default_gems=( aws-sdk rubocop nokogiri activesupport )
 for gem in ${default_gems[*]}; do
   echo "Installing $gem..."
-  gem install $gem
+  gem install "$gem"
 done
 
 
@@ -32,7 +32,7 @@ ruby -e "$(curl -fsSL $hombrew_url)"
 brews=( vim git wget ack openssl tree nmap docker docker-machine )
 for brew in ${brews[*]}; do
   echo "Installing $brew..."
-  brew install $brew
+  brew install "$brew"
 done
 
 
@@ -42,13 +42,14 @@ brew install python
 pip install --upgrade pip
 pip freeze | sudo xargs pip uninstall -y
 pip install --upgrade virtualenvwrapper
-cp .bash_profile-template $HOME/.bash_profile
+cp .bash_profile-template "$HOME/.bash_profile"
+# shellcheck source=.bash_profile-template
 source ~/.bash_profile
 mkvirtualenv default
 python_packages=( awscli nose requests )
 for py_pkg in ${python_packages[*]}; do
   echo "Installing $py_pkg..."
-  pip install --upgrade $py_pkg
+  pip install --upgrade "$py_pkg"
 done
 deactivate
 
@@ -66,7 +67,7 @@ casks=(
 )
 for cask in ${casks[*]}; do
   echo "Installing $cask..."
-  brew cask install $cask --appdir=/Applications
+  brew cask install "$cask" --appdir=/Applications
 done
 
 # Install atom packages
@@ -98,13 +99,13 @@ atom_pkgs=(
 )
 for atom_pkg in ${atom_pkgs[*]}; do
   echo "Installing $atom_pkg..."
-  apm install $atom_pkg
+  apm install "$atom_pkg"
 done
 
 # Configure .vim
 echo 'Configuring vim...'
-mkdir -p $HOME/.vim/autoload $HOME/.vim/bundle
-curl -LSso $HOME/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+mkdir -p "$HOME/.vim/autoload" "$HOME/.vim/bundle"
+curl -LSso "$HOME/.vim/autoload/pathogen.vim" https://tpo.pe/pathogen.vim
 vim_bundles=(
   kien/rainbow_parentheses.vim
   vim-scripts/paredit.vim
@@ -113,16 +114,16 @@ vim_bundles=(
 )
 for repo in ${vim_bundles[*]}; do
   directory=${repo#*/}
-  if [ -d $HOME/.vim/bundle/${directory} ]; then
-    cd $HOME/.vim/bundle/${directory} || exit
+  if [ -d "$HOME/.vim/bundle/${directory}" ]; then
+    cd "$HOME/.vim/bundle/${directory}" || exit
     git pull origin master
   else
-    cd $HOME/.vim/bundle/ || exit
-    git clone git@github.com:${repo}
+    cd "$HOME/.vim/bundle/" || exit
+    git clone "git@github.com:${repo}"
   fi
   cd - || exit
 done
-cp .vimrc-template $HOME/.vimrc
+cp .vimrc-template "$HOME/.vimrc"
 
-cp .profile-template $HOME/.profile
-cp .rvmrc-template $HOME/.rvmrc
+cp .profile-template "$HOME/.profile"
+cp .rvmrc-template "$HOME/.rvmrc"

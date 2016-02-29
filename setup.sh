@@ -73,14 +73,21 @@ done
 echo 'Installing atom packages...'
 atom_pkgs=(
   Sublime-Style-Column-Selection
+  color-picker
+  csscomb
   file-icons
   highlight-selected
   indent-guide-improved
+  language-docker
   language-groovy
+  language-markdown
   linter
   linter-coffeelint
+  linter-csslint
+  linter-docker
   linter-js-yaml
   linter-jsonlint
+  linter-markdown
   linter-pylint
   linter-shellcheck
   linter-rubocop

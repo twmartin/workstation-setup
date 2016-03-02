@@ -11,8 +11,8 @@ git config --global user.email "$GIT_EMAIL"
 # Install RVM, rubies, and global gems
 echo 'Installing RVM, rubies, and gems...'
 curl -sSL https://get.rvm.io | bash
-rvm install 2.1.5
-rvm --default use 2.1.5
+rvm install 2.2.4
+rvm --default use 2.2.4
 cp ./.gemrc-template "$HOME/.gemrc"
 echo "Installing bundler as a global gem..."
 # shellcheck disable=SC1010

@@ -61,6 +61,7 @@ casks=(
   atom
   firefox
   google-chrome
+  google-cloud-sdk
   iterm2
   vagrant
   virtualbox

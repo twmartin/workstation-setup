@@ -1,9 +1,9 @@
 # workstation-setup [![Build Status](https://travis-ci.org/twmartin/workstation-setup.svg)](https://travis-ci.org/twmartin/workstation-setup)
-- Installs [RVM](https://github.com/wayneeseguin/rvm), rubies, and some global/default gems
-- Installs [HomeBrew](https://github.com/Homebrew/homebrew) and some packages
+- Installs [RVM](https://github.com/wayneeseguin/rvm), rubies, and global/default gems
+- Installs [Homebrew](https://github.com/Homebrew/homebrew) and packages
 - Configures Python/virtualenv/packages
-- Installs [HomeBrew-Cask](https://github.com/caskroom/homebrew-cask) and some applications
-- Installs [Atom](https://github.com/atom/atom) and some packages
+- Installs [Homebrew-Cask](https://github.com/caskroom/homebrew-cask) and applications
+- Installs [Atom](https://github.com/atom/atom) and packages
 - Configures vim
 - Overwrites default `.bash_profile`, `.profile`, `.gemrc`, and `.vimrc` files
 

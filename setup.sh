@@ -109,6 +109,7 @@ atom_pkgs=(
   minimap-linter
   minimap-selection
   pigments
+  sort-lines
 )
 for atom_pkg in ${atom_pkgs[*]}; do
   echo "Installing $atom_pkg..."

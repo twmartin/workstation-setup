@@ -73,6 +73,7 @@ casks=(
   firefox
   google-chrome
   google-cloud-sdk
+  google-featured-photos
   iterm2
   vagrant
   virtualbox
